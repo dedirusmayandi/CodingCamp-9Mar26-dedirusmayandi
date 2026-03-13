@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productivity Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="dashboard">
+    <!-- Greeting Display Section -->
+    <section class="greeting-section">
+      <div id="time-display" class="time-display"></div>
+      <div id="date-display" class="date-display"></div>
+      <h1 id="greeting-message" class="greeting-message"></h1>
+    </section>
+
+    <!-- Focus Timer Section -->
+    <section class="timer-section">
+      <h2>Focus Timer</h2>
+      <div id="timer-display" class="timer-display">25:00</div>
+      <div class="timer-controls">
+        <button id="timer-start" class="timer-button">Start</button>
+        <button id="timer-stop" class="timer-button">Stop</button>
+        <button id="timer-reset" class="timer-button">Reset</button>
+      </div>
+      <div id="timer-notification" class="timer-notification"></div>
+    </section>
+
+    <!-- Task List Section -->
+    <section class="tasks-section">
+      <h2>Tasks</h2>
+      <div class="task-input-container">
+        <input type="text" id="task-input" class="task-input" placeholder="Add a new task..." maxlength="500">
+        <button id="task-add-button" class="task-add-button">Add Task</button>
+      </div>
+      <ul id="task-list" class="task-list"></ul>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section class="links-section">
+      <h2>Quick Links</h2>
+      <div class="link-input-container">
+        <input type="text" id="link-name-input" class="link-input" placeholder="Link name..." maxlength="100">
+        <input type="url" id="link-url-input" class="link-input" placeholder="https://example.com" maxlength="2000">
+        <button id="link-add-button" class="link-add-button">Add Link</button>
+      </div>
+      <div id="link-error-message" class="error-message" style="display: none;"></div>
+      <div id="links-container" class="links-container"></div>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

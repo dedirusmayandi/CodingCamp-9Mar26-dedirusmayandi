@@ -1,0 +1,540 @@
+/* ===================================
+   CSS Reset and Base Styles
+   =================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===================================
+   Typography and Color Variables
+   =================================== */
+
+:root {
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-active: #1e40af;
+  --color-danger: #dc2626;
+  --color-danger-hover: #b91c1c;
+  --color-success: #16a34a;
+  --color-text: #1f2937;
+  --color-text-light: #6b7280;
+  --color-text-muted: #9ca3af;
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f9fafb;
+  --color-border: #e5e7eb;
+  --color-border-focus: #3b82f6;
+  --color-completed: #9ca3af;
+  
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-size-base: 16px;
+  --font-size-small: 14px;
+  --font-size-large: 18px;
+  --font-size-xlarge: 24px;
+  --font-size-xxlarge: 48px;
+  
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  
+  --border-radius: 8px;
+  --border-radius-sm: 4px;
+  --transition-speed: 150ms;
+}
+
+/* ===================================
+   Base Layout
+   =================================== */
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg-secondary);
+  min-height: 100vh;
+  padding: var(--spacing-lg);
+}
+
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  align-items: start;
+}
+
+/* ===================================
+   Section Styles
+   =================================== */
+
+section {
+  background-color: var(--color-bg);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  font-size: var(--font-size-large);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text);
+}
+
+/* ===================================
+   Greeting Section
+   =================================== */
+
+.greeting-section {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--spacing-xl);
+}
+
+.time-display {
+  font-size: var(--font-size-xxlarge);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm);
+}
+
+.date-display {
+  font-size: var(--font-size-large);
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-lg);
+}
+
+.greeting-message {
+  font-size: var(--font-size-xlarge);
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+/* ===================================
+   Timer Section
+   =================================== */
+
+.timer-section {
+  text-align: center;
+}
+
+.timer-display {
+  font-size: var(--font-size-xxlarge);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-lg);
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--border-radius);
+}
+
+.timer-controls {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.timer-button {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--color-bg);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease,
+              transform var(--transition-speed) ease;
+  min-width: 80px;
+}
+
+.timer-button:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.timer-button:active {
+  background-color: var(--color-primary-active);
+  transform: translateY(0);
+}
+
+.timer-button:focus {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.timer-notification {
+  margin-top: var(--spacing-md);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--color-success);
+  min-height: 24px;
+}
+
+/* ===================================
+   Task Section
+   =================================== */
+
+.tasks-section {
+  grid-column: 1 / -1;
+}
+
+.task-input-container {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.task-input {
+  flex: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-base);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  transition: border-color var(--transition-speed) ease,
+              box-shadow var(--transition-speed) ease;
+}
+
+.task-input:focus {
+  outline: none;
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.task-add-button {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--color-bg);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease,
+              transform var(--transition-speed) ease;
+  white-space: nowrap;
+}
+
+.task-add-button:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.task-add-button:active {
+  background-color: var(--color-primary-active);
+  transform: translateY(0);
+}
+
+.task-add-button:focus {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.task-list {
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--border-radius-sm);
+  margin-bottom: var(--spacing-sm);
+  transition: background-color var(--transition-speed) ease,
+              transform var(--transition-speed) ease;
+}
+
+.task-item:hover {
+  background-color: #f3f4f6;
+  transform: translateX(2px);
+}
+
+.task-item.completed {
+  opacity: 0.6;
+}
+
+.task-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.task-text {
+  flex: 1;
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  word-break: break-word;
+  transition: color var(--transition-speed) ease,
+              text-decoration var(--transition-speed) ease;
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: var(--color-completed);
+}
+
+.task-edit-button,
+.task-delete-button {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease,
+              transform var(--transition-speed) ease;
+  flex-shrink: 0;
+}
+
+.task-edit-button {
+  color: var(--color-primary);
+  background-color: transparent;
+}
+
+.task-edit-button:hover {
+  background-color: rgba(37, 99, 235, 0.1);
+  transform: scale(1.05);
+}
+
+.task-delete-button {
+  color: var(--color-danger);
+  background-color: transparent;
+}
+
+.task-delete-button:hover {
+  background-color: rgba(220, 38, 38, 0.1);
+  transform: scale(1.05);
+}
+
+.task-edit-button:focus,
+.task-delete-button:focus {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ===================================
+   Quick Links Section
+   =================================== */
+
+.links-section {
+  grid-column: 1 / -1;
+}
+
+.link-input-container {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.link-input {
+  flex: 1;
+  min-width: 200px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-base);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  transition: border-color var(--transition-speed) ease,
+              box-shadow var(--transition-speed) ease;
+}
+
+.link-input:focus {
+  outline: none;
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.link-add-button {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--color-bg);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease,
+              transform var(--transition-speed) ease;
+  white-space: nowrap;
+}
+
+.link-add-button:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.link-add-button:active {
+  background-color: var(--color-primary-active);
+  transform: translateY(0);
+}
+
+.link-add-button:focus {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.error-message {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-small);
+  color: var(--color-danger);
+  background-color: rgba(220, 38, 38, 0.1);
+  border-radius: var(--border-radius-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.links-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--spacing-sm);
+}
+
+.link-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--border-radius-sm);
+  transition: background-color var(--transition-speed) ease,
+              transform var(--transition-speed) ease;
+}
+
+.link-item:hover {
+  background-color: #f3f4f6;
+  transform: translateY(-2px);
+}
+
+.link-anchor {
+  flex: 1;
+  font-size: var(--font-size-base);
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color var(--transition-speed) ease;
+}
+
+.link-anchor:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+
+.link-anchor:focus {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+  border-radius: var(--border-radius-sm);
+}
+
+.link-delete-button {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  color: var(--color-danger);
+  background-color: transparent;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease,
+              transform var(--transition-speed) ease;
+  flex-shrink: 0;
+}
+
+.link-delete-button:hover {
+  background-color: rgba(220, 38, 38, 0.1);
+  transform: scale(1.05);
+}
+
+.link-delete-button:focus {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
+@media (max-width: 1024px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+  
+  .greeting-section,
+  .tasks-section,
+  .links-section {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: var(--spacing-sm);
+  }
+  
+  section {
+    padding: var(--spacing-md);
+  }
+  
+  .greeting-section {
+    padding: var(--spacing-lg);
+  }
+  
+  .time-display {
+    font-size: 36px;
+  }
+  
+  .timer-display {
+    font-size: 36px;
+  }
+  
+  .task-input-container,
+  .link-input-container {
+    flex-direction: column;
+  }
+  
+  .task-add-button,
+  .link-add-button {
+    width: 100%;
+  }
+  
+  .links-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===================================
+   Accessibility
+   =================================== */
+
+/* Ensure minimum font size for readability */
+body {
+  font-size: max(14px, var(--font-size-base));
+}
+
+/* High contrast focus indicators */
+*:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* Reduced motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
